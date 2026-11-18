@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo preto nobre elegante -->
+  <rect width="512" height="512" rx="110" fill="#0A0908"/>
+  
+  <!-- Anel circular externo em Cobre Rosado (#9E7E69) -->
+  <path d="M394 111C358 75 308 52 253 52C140 52 49 143 49 256C49 369 140 460 253 460C311 460 363 435 400 395" 
+        stroke="#9E7E69" strokeWidth="14" strokeLinecap="round"/>
+        
+  <!-- Monograma NC / N -->
+  <path d="M162 364V148H228L324 364V198" 
+        stroke="#9E7E69" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round"/>
+        
+  <path d="M185 148L339 339" 
+        stroke="#9E7E69" strokeWidth="10" strokeLinecap="round"/>
+        
+  <!-- Estrela / Brilho em Dourado Elegante (#C4A459) -->
+  <path d="M331 114L340 137L363 146L340 155L331 178L322 155L299 146L322 137L331 114Z" 
+        fill="#C4A459"/>
+</svg>
