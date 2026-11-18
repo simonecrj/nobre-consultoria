@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 18px; /* Base ampliada para maior legibilidade e conforto visual */
+    transition: font-size 0.2s ease;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Foco visível de alta acessibilidade para navegação por teclado */
+  *:focus-visible {
+    outline: 3px solid #C4A459;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: #0A0908;
+  color: #EAE8E5;
+  padding: 12px 20px;
+  z-index: 100;
+  font-weight: 700;
+  border: 2px solid #C4A459;
+  border-radius: 8px;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Modo Alto Contraste (WCAG AAA) */
+html.high-contrast body {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+html.high-contrast section,
+html.high-contrast header,
+html.high-contrast footer,
+html.high-contrast div[class*="bg-white"],
+html.high-contrast div[class*="bg-[#F7F4F0]"],
+html.high-contrast div[class*="bg-[#EAE8E5]"],
+html.high-contrast div[class*="bg-[#543D30]"] {
+  background-color: #0A0908 !important;
+  color: #FFFFFF !important;
+  border-color: #FFD700 !important;
+}
+
+html.high-contrast p,
+html.high-contrast span,
+html.high-contrast li,
+html.high-contrast label {
+  color: #FFFFFF !important;
+}
+
+html.high-contrast h1,
+html.high-contrast h2,
+html.high-contrast h3,
+html.high-contrast h4,
+html.high-contrast a {
+  color: #FFD700 !important;
+}
+
+html.high-contrast button {
+  background-color: #FFD700 !important;
+  color: #000000 !important;
+  border: 2px solid #FFFFFF !important;
+  font-weight: 800 !important;
+}
+
+html.high-contrast input,
+html.high-contrast select {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFD700 !important;
+}
+
+/* Espaçamento de leitura ampliado */
+html.wide-spacing body,
+html.wide-spacing p,
+html.wide-spacing li {
+  letter-spacing: 0.04em !important;
+  word-spacing: 0.08em !important;
+  line-height: 1.9 !important;
+}
+
+/* Sublinhar todos os links */
+html.underline-links a {
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  text-decoration-thickness: 2px !important;
+}
