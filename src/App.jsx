@@ -108,14 +108,92 @@ const PILLARS = [
   }
 ];
 
-const CONSULTING_PRODUCT = {
-  id: 'consultoria-restart-fevereiro',
-  name: 'Consultoria Estratégica ReStart (2 Encontros)',
-  turma: 'Turma de Fevereiro • Vagas Limitadas',
-  originalPrice: 597.00,
-  price: 99.99,
-  description: 'Acompanhamento prático em 2 encontros mensais para aplicar os 6 pilares do Método ReStart no seu negócio.'
-};
+const CONSULTING_PRODUCTS = [
+  {
+    id: 'consultoria-restart-dezembro',
+    turmaLabel: 'Turma de Dezembro',
+    name: 'Consultoria Método ReStart — Turma de Dezembro',
+    agenda: '12/12/2026 • 11:00 às 13:00 (Sábado - Google Meet)',
+    badge: 'Agenda Confirmada',
+    originalPrice: 597.00,
+    price: 99.99,
+    description: 'Encontro estratégico ao vivo via Google Meet no dia 12/12/2026 (11:00 às 13:00) para aplicar os 6 pilares do Método ReStart.'
+  },
+  {
+    id: 'consultoria-restart-fevereiro',
+    turmaLabel: 'Turma de Fevereiro',
+    name: 'Consultoria Método ReStart — Turma de Fevereiro',
+    agenda: 'Retorno após Férias de Janeiro • 2 Encontros no Mês',
+    badge: '2 Encontros no Mês',
+    originalPrice: 597.00,
+    price: 99.99,
+    description: 'Retorno oficial após férias de Janeiro com 2 encontros mensais para estruturar gestão, negócios, marketing digital e plano de ação.'
+  }
+];
+
+/* Ícone oficial estilizado do WhatsApp na paleta da marca */
+function WhatsAppIcon({ className = 'w-5 h-5' }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        d="M20.52 3.449A11.86 11.86 0 0 0 12.045 0C5.463 0 .106 5.357.103 11.939c-.001 2.104.549 4.158 1.594 5.968L0 24l6.263-1.643a11.91 11.91 0 0 0 5.777 1.473h.005c6.581 0 11.938-5.358 11.94-11.94a11.864 11.864 0 0 0-3.465-8.441ZM12.045 21.82h-.004a9.9 9.9 0 0 1-5.045-1.38l-.362-.215-3.717.975.992-3.624-.236-.375a9.908 9.908 0 0 1-1.519-5.247c.002-5.463 4.448-9.908 9.914-9.908 2.647 0 5.136 1.032 7.008 2.905a9.852 9.852 0 0 1 2.901 7.011c-.003 5.464-4.449 9.911-9.91 9.911Zm5.435-7.422c-.298-.149-1.763-.87-2.036-.97-.273-.099-.472-.149-.671.149-.198.298-.77.97-.944 1.168-.174.199-.348.224-.646.075-.298-.15-1.259-.464-2.398-1.48-.886-.79-1.484-1.766-1.658-2.064-.174-.298-.018-.459.131-.607.134-.134.298-.348.447-.522.149-.174.199-.298.298-.497.1-.199.05-.373-.025-.522-.075-.149-.671-1.617-.92-2.214-.242-.58-.488-.502-.671-.511-.174-.009-.373-.011-.572-.011s-.522.075-.795.373c-.273.298-1.043 1.02-1.043 2.487 0 1.468 1.068 2.885 1.217 3.084.149.199 2.102 3.21 5.093 4.502.711.307 1.266.491 1.699.628.714.227 1.364.195 1.878.118.573-.086 1.763-.721 2.011-1.417.248-.696.248-1.292.174-1.417-.075-.124-.273-.199-.572-.348Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+/* Ícones modernos e autorais para Os 6 Pilares do Método ReStart na paleta Nobre */
+function PillarBadgeIcon({ pillarNumber }) {
+  return (
+    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#543D30] via-[#6b4f3e] to-[#9E7E69] p-[2px] shadow-md group-hover:scale-105 transition-transform duration-300 shrink-0">
+      <div className="w-full h-full rounded-[14px] bg-[#0A0908] group-hover:bg-[#543D30] transition-colors flex items-center justify-center relative overflow-hidden">
+        <span className="absolute top-1 right-1.5 w-2 h-2 rounded-full bg-[#C4A459]/70" />
+        {pillarNumber === '01' && (
+          <svg viewBox="0 0 36 36" className="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M26.5 11.5A10.5 10.5 0 1 0 28.5 18" stroke="#EAE8E5" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M27 7.5V12.5H22" stroke="#C4A459" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="18" cy="18" r="3" fill="#9E7E69" />
+          </svg>
+        )}
+        {pillarNumber === '02' && (
+          <svg viewBox="0 0 36 36" className="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20.5 6L10 19.5H17.5L15.5 30L26 16.5H18.5L20.5 6Z" fill="#C4A459" stroke="#EAE8E5" strokeWidth="1.6" strokeLinejoin="round" />
+          </svg>
+        )}
+        {pillarNumber === '03' && (
+          <svg viewBox="0 0 36 36" className="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="18" cy="18" r="11" stroke="#EAE8E5" strokeWidth="2.2" />
+            <circle cx="18" cy="18" r="6.5" stroke="#9E7E69" strokeWidth="2.2" />
+            <circle cx="18" cy="18" r="2.8" fill="#C4A459" />
+          </svg>
+        )}
+        {pillarNumber === '04' && (
+          <svg viewBox="0 0 36 36" className="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="18" cy="18" r="11" stroke="#EAE8E5" strokeWidth="2.2" />
+            <polygon points="21.5,14.5 19.5,19.5 14.5,21.5 16.5,16.5" fill="#C4A459" />
+            <circle cx="18" cy="18" r="1.5" fill="#0A0908" />
+          </svg>
+        )}
+        {pillarNumber === '05' && (
+          <svg viewBox="0 0 36 36" className="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M5 18C7.8 12.8 12.6 10 18 10C23.4 10 28.2 12.8 31 18C28.2 23.2 23.4 26 18 26C12.6 26 7.8 23.2 5 18Z" stroke="#EAE8E5" strokeWidth="2.2" />
+            <circle cx="18" cy="18" r="4.2" stroke="#C4A459" strokeWidth="2.2" />
+            <circle cx="18" cy="18" r="1.6" fill="#C4A459" />
+          </svg>
+        )}
+        {pillarNumber === '06' && (
+          <svg viewBox="0 0 36 36" className="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M25.5 7.5C25.5 7.5 27.5 15.5 21.5 21.5L14.5 14.5C20.5 8.5 25.5 7.5 25.5 7.5Z" fill="#EAE8E5" stroke="#C4A459" strokeWidth="1.8" strokeLinejoin="round" />
+            <path d="M14.5 17.5L10 19L12.5 23.5L17 21" stroke="#9E7E69" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M18.5 23.5L17 28L21.5 25.5L20 21" stroke="#9E7E69" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="22" cy="13.5" r="2" fill="#C4A459" />
+          </svg>
+        )}
+      </div>
+    </div>
+  );
+}
 
 /* Logotipo Nobre Consultoria fiel à identidade visual e paleta de cores */
 function NobreBrandLogo({ size = 'md', variant = 'dark' }) {
@@ -318,7 +396,7 @@ function AccessibilityToolbar() {
 
 export default function App() {
   const [cart, setCart] = useState([
-    { ...CONSULTING_PRODUCT, quantity: 1 }
+    { ...CONSULTING_PRODUCTS[0], quantity: 1 }
   ]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -343,17 +421,17 @@ export default function App() {
   const formatBRL = (value) =>
     value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (product = CONSULTING_PRODUCTS[0]) => {
     setCart((prev) => {
-      const existing = prev.find((item) => item.id === CONSULTING_PRODUCT.id);
+      const existing = prev.find((item) => item.id === product.id);
       if (existing) {
         return prev.map((item) =>
-          item.id === CONSULTING_PRODUCT.id
+          item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       }
-      return [...prev, { ...CONSULTING_PRODUCT, quantity: 1 }];
+      return [...prev, { ...product, quantity: 1 }];
     });
     setIsCartOpen(true);
   };
@@ -402,16 +480,16 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F7F4F0] text-[#0A0908]">
-      {/* Barra Superior de Aviso (Agenda Janeiro / Fevereiro) */}
+      {/* Barra Superior de Aviso (Agenda Dezembro 12/12/2026) */}
       <div className="bg-[#543D30] text-[#EAE8E5] text-sm py-3 px-4 text-center border-b border-[#9E7E69]/40">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2">
           <span className="inline-flex items-center gap-1.5 text-[#C4A459] font-bold uppercase tracking-wider text-xs">
-            <Calendar className="w-4 h-4" /> Agenda Oficial:
+            <Calendar className="w-4 h-4" /> Agenda Dezembro:
           </span>
           <span>
-            <strong>Janeiro:</strong> Recesso / Férias •{' '}
+            <strong>12/12/2026</strong> •{' '}
             <strong className="text-white underline decoration-[#C4A459] decoration-2 underline-offset-4">
-              Fevereiro: Retorno com 2 Encontros Estratégicos
+              Horário 11:00 às 13:00 (Sábado - Google Meet)
             </strong>
           </span>
         </div>
@@ -419,13 +497,13 @@ export default function App() {
 
       {/* Cabeçalho Principal */}
       <header className="sticky top-0 z-40 bg-[#0A0908]/95 backdrop-blur-md border-b border-[#543D30]/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
-          <a href="#" aria-label="Nobre Consultoria - Ir para o início">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+          <a href="#" aria-label="Nobre Consultoria - Ir para o início" className="shrink-0">
             <NobreBrandLogo size="md" variant="dark" />
           </a>
 
           {/* Navegação Desktop */}
-          <nav aria-label="Navegação principal" className="hidden lg:flex items-center gap-8 text-base font-medium text-[#EAE8E5]">
+          <nav aria-label="Navegação principal" className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm xl:text-base font-medium text-[#EAE8E5] whitespace-nowrap">
             <a href="#metodo" className="hover:text-[#C4A459] transition-colors">
               Método ReStart
             </a>
@@ -441,12 +519,12 @@ export default function App() {
           </nav>
 
           {/* Ações */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2.5 shrink-0">
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-[#EAE8E5] hover:text-[#C4A459] transition-colors border border-[#9E7E69]/60 rounded-full px-4 py-2.5"
+              className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-[#EAE8E5] hover:text-[#C4A459] transition-colors border border-[#9E7E69]/60 rounded-full px-3.5 py-2 whitespace-nowrap"
             >
               <Instagram className="w-4 h-4 text-[#9E7E69]" />
               <span>@nobre.consult</span>
@@ -454,7 +532,7 @@ export default function App() {
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative inline-flex items-center gap-2.5 bg-[#9E7E69] hover:bg-[#876853] text-white px-5 py-3 rounded-full text-base font-semibold transition-all shadow-lg cursor-pointer"
+              className="relative inline-flex items-center gap-2 bg-[#9E7E69] hover:bg-[#876853] text-white px-4 py-2.5 rounded-full text-sm sm:text-base font-semibold transition-all shadow-lg cursor-pointer whitespace-nowrap"
               aria-label={`Abrir carrinho de compras com ${totalItems} item(ns)`}
             >
               <ShoppingBag className="w-5 h-5" />
@@ -506,55 +584,64 @@ export default function App() {
 
       <main id="conteudo-principal">
         {/* HERO SECTION */}
-        <section className="relative bg-[#0A0908] text-[#EAE8E5] overflow-hidden py-16 sm:py-24 lg:py-28">
+        <section className="relative bg-[#0A0908] text-[#EAE8E5] overflow-hidden py-10 sm:py-14 lg:py-16">
           <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-[#543D30]/40 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-[#9E7E69]/20 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
               {/* Coluna Esquerda */}
-              <div className="lg:col-span-7 space-y-7">
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#543D30]/60 border border-[#9E7E69]/60 text-[#EAE8E5] text-sm font-semibold tracking-wide">
-                  <Sparkles className="w-4 h-4 text-[#C4A459]" />
+              <div className="lg:col-span-7 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#543D30]/60 border border-[#9E7E69]/60 text-[#EAE8E5] text-xs sm:text-sm font-semibold tracking-wide">
+                  <Sparkles className="w-4 h-4 text-[#C4A459] shrink-0" />
                   <span>MÉTODO RESTART — RECOMECE, PLANO, VISÃO E AÇÃO</span>
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-[64px] font-semibold leading-[1.08] text-white">
-                  Recomeçar não é voltar atrás. É{' '}
-                  <span className="text-[#9E7E69] italic">reorganizar a rota</span> para avançar com propósito.
+                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[54px] font-semibold leading-[1.12] text-white">
+                  Ative o ReStart —{' '}
+                  <span className="text-[#9E7E69] italic">ajuste a rota</span> e avance para o propósito!
                 </h1>
 
-                <p className="text-lg sm:text-xl text-[#EAE8E5]/90 max-w-2xl leading-relaxed">
-                  Uma consultoria prática criada para empreendedores que precisam sair da inércia, fortalecer seu posicionamento e transformar intenção em execução estratégica em <strong>2 encontros mensais</strong>.
+                <p className="text-base sm:text-lg text-[#EAE8E5]/90 max-w-2xl leading-snug">
+                  Mentoria Exclusiva para ativar <strong>Estratégias de Gestão, Negócios e Marketing Digital</strong> com clareza, posicionamento e execução prática.
                 </p>
 
                 {/* Bloco de Preço Ancorado */}
-                <div className="bg-[#543D30]/35 border border-[#9E7E69]/50 rounded-3xl p-6 sm:p-7 max-w-2xl">
-                  <div className="flex flex-wrap items-center justify-between gap-5">
+                <div className="bg-[#543D30]/35 border border-[#9E7E69]/50 rounded-2xl p-5 max-w-2xl">
+                  <div className="flex flex-wrap items-center justify-between gap-4">
                     <div>
                       <span className="text-xs uppercase tracking-widest text-[#C4A459] font-bold block">
-                        Condição Especial • Turma Fevereiro
+                        Condição Especial • Turmas Dezembro e Fevereiro
                       </span>
-                      <div className="flex items-baseline gap-3.5 mt-1.5">
-                        <span className="text-base sm:text-lg text-[#EAE8E5]/60 line-through">
+                      <div className="flex items-baseline gap-3 mt-1">
+                        <span className="text-sm sm:text-base text-[#EAE8E5]/60 line-through">
                           De R$ 597,00
                         </span>
-                        <span className="text-4xl sm:text-5xl font-bold text-white">
+                        <span className="text-3xl sm:text-4xl font-bold text-white leading-none">
                           R$ 99,99
                         </span>
                       </div>
-                      <span className="text-sm text-[#EAE8E5]/85 mt-1.5 block">
-                        Janeiro em recesso (Férias) • Garanta sua vaga agora para Fevereiro
+                      <span className="text-xs sm:text-sm text-[#EAE8E5]/85 mt-1.5 block">
+                        Agenda Dezembro: 12/12/2026 • 11:00 às 13:00 (Sábado - Google Meet)
                       </span>
                     </div>
 
-                    <button
-                      onClick={handleAddToCart}
-                      className="inline-flex items-center gap-2.5 bg-[#9E7E69] hover:bg-[#876853] text-white font-bold px-7 py-4 rounded-2xl text-base transition-all shadow-xl cursor-pointer"
-                    >
-                      <ShoppingBag className="w-5 h-5" />
-                      <span>Adicionar ao Carrinho</span>
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                      <button
+                        onClick={() => handleAddToCart(CONSULTING_PRODUCTS[0])}
+                        className="inline-flex items-center justify-center gap-2 bg-[#9E7E69] hover:bg-[#876853] text-white font-bold px-5 py-3.5 rounded-2xl text-sm sm:text-base transition-all shadow-xl cursor-pointer"
+                      >
+                        <ShoppingBag className="w-4 h-4 shrink-0" />
+                        <span>Turma Dezembro</span>
+                      </button>
+                      <button
+                        onClick={() => handleAddToCart(CONSULTING_PRODUCTS[1])}
+                        className="inline-flex items-center justify-center gap-2 bg-[#543D30] hover:bg-[#3d2b21] text-white border border-[#C4A459]/60 font-bold px-5 py-3.5 rounded-2xl text-sm sm:text-base transition-all shadow-xl cursor-pointer"
+                      >
+                        <ShoppingBag className="w-4 h-4 shrink-0" />
+                        <span>Turma Fevereiro</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -572,25 +659,25 @@ export default function App() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 hover:text-white transition-colors font-medium"
                   >
-                    <Phone className="w-5 h-5 text-[#C4A459]" /> (21) 99439-2628
+                    <WhatsAppIcon className="w-5 h-5 text-[#C4A459]" /> (21) 99439-2628
                   </a>
                 </div>
               </div>
 
               {/* Coluna Direita: Captura Rápida de Leads */}
               <div className="lg:col-span-5">
-                <div className="bg-[#F7F4F0] text-[#0A0908] rounded-3xl p-7 sm:p-9 shadow-2xl border-2 border-[#9E7E69]/50">
-                  <div className="flex items-start justify-between gap-3 border-b border-[#543D30]/20 pb-5 mb-6">
+                <div className="bg-[#F7F4F0] text-[#0A0908] rounded-3xl p-6 sm:p-7 shadow-2xl border-2 border-[#9E7E69]/50">
+                  <div className="flex items-start justify-between gap-3 border-b border-[#543D30]/20 pb-3.5 mb-4">
                     <div>
                       <span className="text-xs font-bold uppercase tracking-widest text-[#543D30]">
-                        Lista Prioritária • Fevereiro
+                        Lista Prioritária • Vagas Limitadas
                       </span>
-                      <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#0A0908] mt-1 leading-tight">
+                      <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0A0908] mt-0.5 leading-tight">
                         Garanta sua vaga com 83% OFF
                       </h2>
                     </div>
-                    <span className="bg-[#543D30] text-white text-xs font-bold px-3.5 py-2 rounded-full shrink-0">
-                      2 Encontros
+                    <span className="bg-[#543D30] text-white text-xs font-bold px-3 py-1.5 rounded-full shrink-0">
+                      R$ 99,99
                     </span>
                   </div>
 
@@ -683,7 +770,7 @@ export default function App() {
         </section>
 
         {/* SOBRE O MÉTODO RESTART */}
-        <section id="metodo" className="py-20 sm:py-28 bg-[#F7F4F0]">
+        <section id="metodo" className="py-14 sm:py-16 bg-[#F7F4F0]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             <span className="text-sm font-bold uppercase tracking-[0.25em] text-[#9E7E69]">
               Clareza, Estratégia e Propósito
@@ -695,28 +782,22 @@ export default function App() {
               O <strong>ReStart</strong> nasce de uma ideia simples e poderosa: recomeçar não significa voltar ao ponto de partida. Significa <strong>reorganizar a rota, fortalecer a visão e entrar em movimento</strong> para avançar com consistência.
             </p>
 
-            {/* Cronograma Janeiro / Fevereiro */}
-            <div className="pt-8 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
-              <div className="bg-white border-2 border-[#543D30]/15 rounded-3xl p-7 flex items-start gap-5 shadow-sm">
-                <div className="w-14 h-14 rounded-2xl bg-[#EAE8E5] text-[#543D30] flex items-center justify-center shrink-0 font-bold text-base">
-                  JAN
+            {/* Agenda Dezembro 12/12/2026 */}
+            <div className="pt-8 max-w-3xl mx-auto text-left">
+              <div className="bg-[#543D30] text-white rounded-3xl p-7 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5 shadow-xl border-2 border-[#9E7E69]">
+                <div className="w-16 h-16 rounded-2xl bg-[#9E7E69] text-white flex flex-col items-center justify-center shrink-0 font-bold leading-tight">
+                  <span className="text-xs uppercase tracking-wider">DEZ</span>
+                  <span className="text-xl">12</span>
                 </div>
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-[#0A0908]">Janeiro • Pausa Estratégica</h3>
-                  <p className="text-base text-[#543D30] mt-1.5">
-                    Período de férias e recesso da consultoria. Inscrições abertas antecipadamente para garantir sua cadeira na turma de retorno.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-[#543D30] text-white rounded-3xl p-7 flex items-start gap-5 shadow-xl border-2 border-[#9E7E69]">
-                <div className="w-14 h-14 rounded-2xl bg-[#9E7E69] text-white flex items-center justify-center shrink-0 font-bold text-base">
-                  FEV
-                </div>
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-white">Fevereiro • Retorno Oficial (2 Encontros)</h3>
-                  <p className="text-base text-[#EAE8E5] mt-1.5">
-                    Meta de <strong>2 encontros no mês</strong> com acompanhamento prático para estruturar seu plano e colocar em ação.
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#C4A459]">
+                    Próximo Encontro Confirmado
+                  </span>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-0.5">
+                    Agenda Dezembro: 12/12/2026
+                  </h3>
+                  <p className="text-base sm:text-lg text-[#EAE8E5] mt-1.5">
+                    <strong>Horário: 11:00 às 13:00</strong> (Sábado • Ao vivo via <strong>Google Meet</strong>)
                   </p>
                 </div>
               </div>
@@ -725,9 +806,9 @@ export default function App() {
         </section>
 
         {/* OS 6 PILARES DO MÉTODO RESTART */}
-        <section id="pilares" className="py-20 sm:py-28 bg-[#EAE8E5] border-y border-[#543D30]/15">
+        <section id="pilares" className="py-14 sm:py-16 bg-[#EAE8E5] border-y border-[#543D30]/15">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
               <span className="text-sm font-bold uppercase tracking-[0.25em] text-[#543D30]">
                 Jornada Estruturada
               </span>
@@ -741,7 +822,6 @@ export default function App() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {PILLARS.map((pillar) => {
-                const IconComponent = pillar.icon;
                 return (
                   <article
                     key={pillar.number}
@@ -749,9 +829,7 @@ export default function App() {
                   >
                     <div>
                       <div className="flex items-center justify-between mb-6">
-                        <div className="w-14 h-14 rounded-2xl bg-[#F7F4F0] text-[#543D30] group-hover:bg-[#543D30] group-hover:text-white transition-colors flex items-center justify-center">
-                          <IconComponent className="w-7 h-7" />
-                        </div>
+                        <PillarBadgeIcon pillarNumber={pillar.number} />
                         <span className="font-serif text-4xl font-bold text-[#9E7E69]/50 group-hover:text-[#9E7E69] transition-colors">
                           {pillar.number}
                         </span>
@@ -787,9 +865,9 @@ export default function App() {
         </section>
 
         {/* QUEM É CAMILA NOBRE */}
-        <section id="mentora" className="py-20 sm:py-28 bg-[#F7F4F0]">
+        <section id="mentora" className="py-14 sm:py-16 bg-[#F7F4F0]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-14 border-2 border-[#543D30]/15 shadow-xl">
+            <div className="bg-white rounded-3xl p-6 sm:p-9 lg:p-10 border-2 border-[#543D30]/15 shadow-xl">
               <div className="grid lg:grid-cols-12 gap-12 items-center">
                 {/* Coluna Esquerda: Foto Oficial */}
                 <div className="lg:col-span-5 flex flex-col items-center space-y-6">
@@ -896,90 +974,147 @@ export default function App() {
           </div>
         </section>
 
-        {/* SEÇÃO DE INVESTIMENTO E CARRINHO */}
-        <section id="investimento" className="py-20 sm:py-28 bg-[#0A0908] text-[#EAE8E5]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
-            <div className="space-y-4">
-              <span className="text-sm font-bold uppercase tracking-[0.25em] text-[#C4A459]">
-                Inscrições Abertas • Retorno em Fevereiro
-              </span>
-              <h2 className="font-serif text-4xl sm:text-6xl font-semibold text-white">
-                Pronto para dar o seu ReStart?
-              </h2>
-              <p className="text-lg sm:text-xl text-[#EAE8E5]/85 max-w-2xl mx-auto">
-                Aproveite o período de férias de Janeiro para garantir sua vaga na turma de Fevereiro com condição promocional exclusiva.
-              </p>
-            </div>
-
-            <div className="bg-[#F7F4F0] text-[#0A0908] rounded-3xl p-8 sm:p-12 max-w-2xl mx-auto shadow-2xl border-4 border-[#9E7E69] relative">
-              <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#543D30] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-5 py-2 rounded-full shadow-lg border border-[#C4A459]">
-                Oferta Limitada • 83% de Desconto
-              </div>
-
-              <h3 className="font-serif text-3xl sm:text-4xl font-bold text-[#0A0908] mt-3">
-                Consultoria Método ReStart
-              </h3>
-              <p className="text-base sm:text-lg text-[#543D30] mt-1">
-                2 Encontros Estratégicos no mês de Fevereiro
-              </p>
-
-              <div className="my-7 py-6 border-y border-[#543D30]/20">
-                <span className="text-base text-[#543D30] line-through block">
-                  Valor original: R$ 597,00
-                </span>
-                <div className="flex items-baseline justify-center gap-1.5 mt-1">
-                  <span className="text-2xl font-bold text-[#543D30]">R$</span>
-                  <span className="text-6xl sm:text-7xl font-bold text-[#0A0908] tracking-tight">
-                    99,99
-                  </span>
+        {/* DEPOIMENTO DE MENTORADO EM VÍDEO */}
+        <section id="depoimento" className="py-14 sm:py-16 bg-[#0A0908] text-[#EAE8E5] border-t border-[#543D30]/60">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="w-full max-w-[340px] rounded-3xl overflow-hidden border-4 border-[#9E7E69]/60 shadow-2xl bg-[#543D30]/30">
+                  <video
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="w-full h-auto aspect-[9/16] object-cover bg-black"
+                    aria-label="Vídeo de depoimento de Isabel, mentora e empreendedora transformada pelo Método ReStart"
+                  >
+                    <source src="/videos/depoimento-isabel.mp4" type="video/mp4" />
+                    Seu navegador não suporta a reprodução de vídeo.
+                  </video>
                 </div>
-                <span className="text-sm font-bold text-emerald-800 bg-emerald-100 px-4 py-1.5 rounded-full inline-block mt-3">
-                  Você economiza R$ 497,01 hoje
-                </span>
               </div>
 
-              <ul className="text-left space-y-4 text-base sm:text-lg text-[#0A0908] mb-9">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#543D30] shrink-0 mt-0.5" />
-                  <span><strong>2 encontros mensais</strong> focados no seu negócio</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#543D30] shrink-0 mt-0.5" />
-                  <span>Aplicação completa dos <strong>6 Pilares ReStart</strong></span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#543D30] shrink-0 mt-0.5" />
-                  <span>Plano de ação prático, posicionamento e metas claras</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#543D30] shrink-0 mt-0.5" />
-                  <span>Agendamento prioritário para <strong>Fevereiro</strong> (após férias de Janeiro)</span>
-                </li>
-              </ul>
-
-              <div className="space-y-4">
-                <button
-                  onClick={handleAddToCart}
-                  className="w-full bg-[#9E7E69] hover:bg-[#876853] text-white font-bold py-4 px-6 rounded-2xl transition-all flex items-center justify-center gap-3 text-lg shadow-xl cursor-pointer"
-                >
-                  <ShoppingBag className="w-6 h-6" />
-                  <span>Adicionar Consultoria ao Carrinho</span>
-                </button>
-
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá, Camila! Tenho interesse na Consultoria Método ReStart de Fevereiro por R$ 99,99.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-white hover:bg-[#EAE8E5] text-[#0A0908] border-2 border-[#543D30]/30 font-bold py-4 px-6 rounded-2xl transition-all flex items-center justify-center gap-2.5 text-base"
-                >
-                  <Phone className="w-5 h-5 text-[#543D30]" />
-                  <span>Tirar Dúvidas no WhatsApp: (21) 99439-2628</span>
-                </a>
+              <div className="lg:col-span-7 space-y-6">
+                <span className="text-sm font-bold uppercase tracking-[0.25em] text-[#C4A459]">
+                  História Real de Transformação
+                </span>
+                <h2 className="font-serif text-4xl sm:text-5xl font-semibold text-white leading-tight">
+                  Resultados reais de quem ativou o <span className="text-[#9E7E69] italic">Método ReStart</span>
+                </h2>
+                <blockquote className="border-l-4 border-[#C4A459] pl-6 py-1 italic font-serif text-2xl sm:text-3xl text-[#EAE8E5] leading-relaxed">
+                  "Antes do ReStart eu tinha muitas dúvidas sobre como divulgar, precificar e investir. Aprendi que recomeçar faz parte — recomeçar com visão, planejamento e ação."
+                </blockquote>
+                <div className="pt-2">
+                  <p className="font-serif text-2xl font-bold text-white">Isabel</p>
+                  <p className="text-sm uppercase tracking-wider text-[#9E7E69] font-semibold">
+                    Professora de Música Empreendedora • Mentorada ReStart
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* SEÇÃO DE INVESTIMENTO E CARRINHO */}
+        <section id="investimento" className="py-14 sm:py-16 bg-[#0A0908] text-[#EAE8E5]">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7">
+            <div className="space-y-4">
+              <span className="text-sm font-bold uppercase tracking-[0.25em] text-[#C4A459]">
+                Agenda Dezembro: 12/12/2026 • 11:00 às 13:00 (Sábado - Google Meet)
+              </span>
+              <h2 className="font-serif text-4xl sm:text-6xl font-semibold text-white">
+                Pronto para Ativar ReStart
+              </h2>
+              <p className="text-lg sm:text-xl text-[#EAE8E5]/85 max-w-2xl mx-auto">
+                Garanta sua vaga para o encontro ao vivo no dia <strong>12/12/2026 (Sábado, das 11:00 às 13:00 via Google Meet)</strong> com condição promocional exclusiva.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-6">
+              {CONSULTING_PRODUCTS.map((turma) => (
+                <div
+                  key={turma.id}
+                  className="bg-[#F7F4F0] text-[#0A0908] rounded-3xl pt-12 pb-8 px-6 sm:px-8 shadow-2xl border-4 border-[#9E7E69] relative flex flex-col justify-between"
+                >
+                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#543D30] text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-lg border border-[#C4A459]">
+                    {turma.turmaLabel} • 83% OFF
+                  </div>
+
+                  <div>
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0A0908] mt-1">
+                      {turma.name}
+                    </h3>
+                    <p className="text-sm sm:text-base font-semibold text-[#543D30] mt-1.5">
+                      {turma.agenda}
+                    </p>
+
+                    <div className="my-6 py-5 border-y border-[#543D30]/20">
+                      <span className="text-sm text-[#543D30] line-through block">
+                        Valor original: R$ 597,00
+                      </span>
+                      <div className="flex items-baseline justify-center gap-1.5 mt-1">
+                        <span className="text-xl font-bold text-[#543D30]">R$</span>
+                        <span className="text-5xl sm:text-6xl font-bold text-[#0A0908] tracking-tight">
+                          99,99
+                        </span>
+                      </div>
+                      <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-3.5 py-1 rounded-full inline-block mt-2.5">
+                        Economia de R$ 497,01
+                      </span>
+                    </div>
+
+                    <ul className="text-left space-y-3 text-sm sm:text-base text-[#0A0908] mb-8">
+                      <li className="flex items-start gap-2.5">
+                        <CheckCircle2 className="w-5 h-5 text-[#543D30] shrink-0 mt-0.5" />
+                        <span>{turma.description}</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <CheckCircle2 className="w-5 h-5 text-[#543D30] shrink-0 mt-0.5" />
+                        <span>Aplicação completa dos <strong>6 Pilares ReStart</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <CheckCircle2 className="w-5 h-5 text-[#543D30] shrink-0 mt-0.5" />
+                        <span>Estratégias de Gestão, Negócios e Marketing Digital</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <button
+                    onClick={() => handleAddToCart(turma)}
+                    className="w-full bg-[#9E7E69] hover:bg-[#876853] text-white font-bold py-4 px-5 rounded-2xl transition-all flex items-center justify-center gap-2.5 text-base shadow-xl cursor-pointer"
+                  >
+                    <ShoppingBag className="w-5 h-5" />
+                    <span>Comprar {turma.turmaLabel}</span>
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-4">
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá, Camila! Tenho dúvidas sobre a Turma de Dezembro (12/12/2026) ou Turma de Fevereiro do Método ReStart por R$ 99,99.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-[#EAE8E5] text-[#0A0908] border-2 border-[#543D30]/30 font-bold py-4 px-8 rounded-2xl transition-all text-base shadow-lg"
+              >
+                <Phone className="w-5 h-5 text-[#543D30]" />
+                <span>Tirar Dúvidas no WhatsApp: (21) 99439-2628</span>
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
+
+      {/* BOTÃO FLUTUANTE DO WHATSAPP PARA ACESSO E DÚVIDAS */}
+      <a
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá, Camila! Gostaria de tirar uma dúvida sobre a Consultoria Método ReStart.')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Falar com a Nobre Consultoria no WhatsApp para acesso e dúvidas"
+        className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 bg-[#543D30] hover:bg-[#0A0908] text-white border-2 border-[#C4A459] px-4 py-3.5 rounded-full shadow-2xl transition-all font-bold text-sm"
+      >
+        <WhatsAppIcon className="w-5 h-5 text-[#C4A459]" />
+        <span className="hidden sm:inline">WhatsApp • Dúvidas</span>
+      </a>
 
       {/* RODAPÉ */}
       <footer className="bg-[#0A0908] text-[#EAE8E5] border-t border-[#543D30] py-14">
@@ -1003,7 +1138,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 hover:text-[#C4A459] transition-colors font-medium"
             >
-              <Phone className="w-5 h-5 text-[#9E7E69]" />
+              <WhatsAppIcon className="w-5 h-5 text-[#9E7E69]" />
               <span>(21) 99439-2628</span>
             </a>
           </div>
@@ -1081,15 +1216,35 @@ export default function App() {
                 <div className="text-center py-14 space-y-5">
                   <ShoppingBag className="w-14 h-14 text-[#9E7E69]/60 mx-auto" />
                   <p className="text-base text-[#543D30]">Seu carrinho está vazio no momento.</p>
-                  <button
-                    onClick={handleAddToCart}
-                    className="bg-[#543D30] text-white text-base font-bold px-6 py-3 rounded-xl cursor-pointer"
-                  >
-                    Adicionar Consultoria ReStart (R$ 99,99)
-                  </button>
+                  <div className="flex flex-col gap-3">
+                    <button
+                      onClick={() => handleAddToCart(CONSULTING_PRODUCTS[0])}
+                      className="bg-[#543D30] hover:bg-[#3d2b21] text-white text-sm font-bold px-5 py-3 rounded-xl cursor-pointer"
+                    >
+                      Adicionar Turma de Dezembro (R$ 99,99)
+                    </button>
+                    <button
+                      onClick={() => handleAddToCart(CONSULTING_PRODUCTS[1])}
+                      className="bg-[#9E7E69] hover:bg-[#876853] text-white text-sm font-bold px-5 py-3 rounded-xl cursor-pointer"
+                    >
+                      Adicionar Turma de Fevereiro (R$ 99,99)
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <>
+                  <div className="flex flex-wrap gap-2 pb-1">
+                    {CONSULTING_PRODUCTS.map((t) => (
+                      <button
+                        key={t.id}
+                        type="button"
+                        onClick={() => handleAddToCart(t)}
+                        className="text-xs font-bold bg-[#EAE8E5] hover:bg-[#9E7E69] hover:text-white text-[#543D30] px-3 py-1.5 rounded-full transition-colors cursor-pointer"
+                      >
+                        + {t.turmaLabel}
+                      </button>
+                    ))}
+                  </div>
                   <div className="space-y-4">
                     {cart.map((item) => (
                       <div
@@ -1098,8 +1253,11 @@ export default function App() {
                       >
                         <div className="flex justify-between items-start gap-3">
                           <div>
-                            <span className="text-xs font-bold uppercase tracking-wider text-[#9E7E69]">
-                              {item.turma}
+                            <span className="text-xs font-bold uppercase tracking-wider text-[#9E7E69] block">
+                              {item.turmaLabel}
+                            </span>
+                            <span className="text-xs font-medium text-[#543D30] block mt-0.5">
+                              {item.agenda}
                             </span>
                             <h3 className="font-serif text-xl font-bold text-[#0A0908] mt-0.5">
                               {item.name}
@@ -1214,8 +1372,8 @@ export default function App() {
                   form="checkout-form"
                   className="w-full bg-[#543D30] hover:bg-[#3d2b21] text-white font-bold py-4 px-6 rounded-2xl text-base transition-all flex items-center justify-center gap-2.5 shadow-xl cursor-pointer"
                 >
-                  <span>Finalizar Pedido no WhatsApp</span>
-                  <ArrowRight className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5 text-[#C4A459]" />
+                  <span>Enviar Compra no WhatsApp</span>
                 </button>
               </div>
             )}
