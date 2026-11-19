@@ -232,10 +232,10 @@ function NobreBrandLogo({ size = 'md', variant = 'dark' }) {
         </svg>
       </div>
       <div className="flex flex-col leading-none text-left">
-        <span className={`font-serif ${isLarge ? 'text-3xl sm:text-4xl' : 'text-2xl sm:text-[28px]'} tracking-[0.22em] font-semibold ${titleColor}`}>
+        <span className={`font-serif ${isLarge ? 'text-2xl sm:text-4xl' : 'text-lg sm:text-[26px]'} tracking-[0.14em] sm:tracking-[0.22em] font-semibold ${titleColor}`}>
           NOBRE
         </span>
-        <span className={`${isLarge ? 'text-xs' : 'text-[10px]'} tracking-[0.4em] ${subtitleColor} uppercase mt-1.5 font-semibold`}>
+        <span className={`${isLarge ? 'text-[10px] sm:text-xs' : 'text-[9px] sm:text-[10px]'} tracking-[0.25em] sm:tracking-[0.4em] ${subtitleColor} uppercase mt-1 font-semibold`}>
           Consultoria
         </span>
       </div>
@@ -495,7 +495,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F4F0] text-[#0A0908]">
+    <div className="min-h-screen w-full max-w-full overflow-x-clip flex flex-col bg-[#F7F4F0] text-[#0A0908]">
       {/* Barra Superior de Aviso (Agenda Dezembro 12/12/2026) */}
       <div className="bg-[#543D30] text-[#EAE8E5] text-sm py-3 px-4 text-center border-b border-[#9E7E69]/40">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2">
@@ -598,7 +598,7 @@ export default function App() {
         )}
       </header>
 
-      <main id="conteudo-principal">
+      <main id="conteudo-principal" className="w-full max-w-full pb-16 sm:pb-0">
         {/* HERO SECTION */}
         <section className="relative bg-[#0A0908] text-[#EAE8E5] overflow-hidden py-10 sm:py-14 lg:py-16">
           <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-[#543D30]/40 rounded-full blur-3xl pointer-events-none" />
@@ -841,12 +841,12 @@ export default function App() {
                 return (
                   <article
                     key={pillar.number}
-                    className="bg-white rounded-3xl p-8 border-2 border-[#543D30]/10 shadow-sm hover:shadow-xl hover:border-[#9E7E69] transition-all flex flex-col justify-between group"
+                    className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-[#543D30]/10 shadow-sm hover:shadow-xl hover:border-[#9E7E69] transition-all flex flex-col justify-between group"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-6">
                         <PillarBadgeIcon pillarNumber={pillar.number} />
-                        <span className="font-serif text-4xl font-bold text-[#9E7E69]/50 group-hover:text-[#9E7E69] transition-colors">
+                        <span className="font-serif text-2xl sm:text-3xl font-bold tracking-normal text-[#9E7E69]/70 group-hover:text-[#9E7E69] transition-colors shrink-0">
                           {pillar.number}
                         </span>
                       </div>
@@ -1121,7 +1121,7 @@ export default function App() {
       </main>
 
       {/* BOTÃO FLUTUANTE DO WHATSAPP PARA ACESSO E DÚVIDAS */}
-      <div className="fixed bottom-3 right-3 z-50 flex items-center gap-1">
+      <div className="fixed bottom-2.5 right-2.5 z-50 flex items-center gap-1">
         <a
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá, Camila! Gostaria de tirar uma dúvida sobre a Consultoria Método ReStart.')}`}
           target="_blank"
