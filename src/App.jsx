@@ -244,7 +244,7 @@ function NobreBrandLogo({ size = 'md', variant = 'dark' }) {
 }
 
 /* Barra Flutuante de Acessibilidade (WCAG) */
-function AccessibilityToolbar() {
+function AccessibilityToolbar({ compactMode = false, onToggleCompact }) {
   const [open, setOpen] = useState(false);
   const [fontScale, setFontScale] = useState(100);
   const [highContrast, setHighContrast] = useState(false);
@@ -275,12 +275,12 @@ function AccessibilityToolbar() {
   };
 
   return (
-    <div className="fixed bottom-5 left-5 z-50">
+    <div className={`fixed ${compactMode ? 'bottom-14' : 'bottom-16'} right-3 z-50 flex flex-col items-end`}>
       {open && (
         <div
           role="dialog"
           aria-label="Recursos de Acessibilidade"
-          className="mb-3 w-80 rounded-2xl bg-[#0A0908] text-[#EAE8E5] p-5 shadow-2xl border-2 border-[#9E7E69] space-y-4"
+          className="mb-2 w-64 rounded-2xl bg-[#0A0908] text-[#EAE8E5] p-3.5 shadow-2xl border border-[#9E7E69] space-y-2.5"
         >
           <div className="flex items-center justify-between border-b border-[#543D30] pb-3">
             <div className="flex items-center gap-2">
@@ -381,15 +381,30 @@ function AccessibilityToolbar() {
         </div>
       )}
 
-      <button
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        aria-label="Abrir opções de acessibilidade"
-        className="flex items-center gap-2 bg-[#543D30] hover:bg-[#0A0908] text-white border-2 border-[#C4A459] px-4 py-3 rounded-full shadow-xl transition-all cursor-pointer font-semibold text-sm"
-      >
-        <Accessibility className="w-5 h-5 text-[#C4A459]" />
-        <span className="hidden sm:inline">Acessibilidade</span>
-      </button>
+      <div className="flex items-center gap-1">
+        <button
+          type="button"
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-label="Abrir opções de acessibilidade"
+          title="Acessibilidade"
+          className={`flex items-center justify-center bg-[#543D30]/95 hover:bg-[#0A0908] text-white border border-[#C4A459]/80 rounded-full shadow-md transition-all cursor-pointer font-semibold ${
+            compactMode ? 'w-8 h-8' : 'gap-1 px-2.5 py-1.5 text-[11px]'
+          }`}
+        >
+          <Accessibility className="w-3.5 h-3.5 text-[#C4A459] shrink-0" />
+          {!compactMode && <span>Acessibilidade</span>}
+        </button>
+        <button
+          type="button"
+          onClick={onToggleCompact}
+          aria-label={compactMode ? 'Expandir botões flutuantes' : 'Encolher botões flutuantes'}
+          title={compactMode ? 'Expandir botões' : 'Encolher para ver o design'}
+          className="w-6 h-6 rounded-full bg-[#0A0908]/90 hover:bg-[#543D30] text-[#C4A459] border border-[#9E7E69]/70 flex items-center justify-center text-[10px] font-bold shadow cursor-pointer"
+        >
+          {compactMode ? '+' : '−'}
+        </button>
+      </div>
     </div>
   );
 }
@@ -401,6 +416,7 @@ export default function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showQrModal, setShowQrModal] = useState(false);
+  const [compactButtons, setCompactButtons] = useState(false);
 
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
@@ -1105,16 +1121,30 @@ export default function App() {
       </main>
 
       {/* BOTÃO FLUTUANTE DO WHATSAPP PARA ACESSO E DÚVIDAS */}
-      <a
-        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá, Camila! Gostaria de tirar uma dúvida sobre a Consultoria Método ReStart.')}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Falar com a Nobre Consultoria no WhatsApp para acesso e dúvidas"
-        className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 bg-[#543D30] hover:bg-[#0A0908] text-white border-2 border-[#C4A459] px-4 py-3.5 rounded-full shadow-2xl transition-all font-bold text-sm"
-      >
-        <WhatsAppIcon className="w-5 h-5 text-[#C4A459]" />
-        <span className="hidden sm:inline">WhatsApp • Dúvidas</span>
-      </a>
+      <div className="fixed bottom-3 right-3 z-50 flex items-center gap-1">
+        <a
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá, Camila! Gostaria de tirar uma dúvida sobre a Consultoria Método ReStart.')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Falar com a Nobre Consultoria no WhatsApp para acesso e dúvidas"
+          title="WhatsApp • Dúvidas"
+          className={`flex items-center justify-center bg-[#543D30]/95 hover:bg-[#0A0908] text-white border border-[#C4A459]/80 rounded-full shadow-lg transition-all font-bold ${
+            compactButtons ? 'w-8 h-8' : 'gap-1.5 px-2.5 py-1.5 text-[11px]'
+          }`}
+        >
+          <WhatsAppIcon className="w-3.5 h-3.5 text-[#C4A459] shrink-0" />
+          {!compactButtons && <span>WhatsApp • Dúvidas</span>}
+        </a>
+        <button
+          type="button"
+          onClick={() => setCompactButtons((prev) => !prev)}
+          aria-label={compactButtons ? 'Expandir botões' : 'Encolher botões para deixar o design visível'}
+          title={compactButtons ? 'Expandir' : 'Encolher'}
+          className="w-6 h-6 rounded-full bg-[#0A0908]/90 hover:bg-[#543D30] text-[#C4A459] border border-[#9E7E69]/70 flex items-center justify-center text-[10px] font-bold shadow cursor-pointer"
+        >
+          {compactButtons ? '+' : '−'}
+        </button>
+      </div>
 
       {/* RODAPÉ */}
       <footer className="bg-[#0A0908] text-[#EAE8E5] border-t border-[#543D30] py-14">
@@ -1150,7 +1180,10 @@ export default function App() {
       </footer>
 
       {/* BARRA FLUTUANTE DE ACESSIBILIDADE */}
-      <AccessibilityToolbar />
+      <AccessibilityToolbar
+        compactMode={compactButtons}
+        onToggleCompact={() => setCompactButtons((prev) => !prev)}
+      />
 
       {/* MODAL QR CODE INSTAGRAM */}
       {showQrModal && (
